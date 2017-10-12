@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ru.ivmiit.PaintForm">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="5" vgap="5">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <enabled value="false"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="d359f" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="line"/>
+        <children>
+          <component id="7aad1" class="javax.swing.JButton" binding="func1">
+            <constraints/>
+            <properties>
+              <actionCommand value="func1"/>
+              <background color="-1842206"/>
+              <text value="Функция1"/>
+            </properties>
+          </component>
+          <component id="1482d" class="javax.swing.JButton" binding="func2">
+            <constraints/>
+            <properties>
+              <actionCommand value="func2"/>
+              <horizontalAlignment value="0"/>
+              <text value="Функция2"/>
+            </properties>
+          </component>
+          <component id="32279" class="javax.swing.JButton" binding="func3">
+            <constraints/>
+            <properties>
+              <actionCommand value="func3"/>
+              <label value="Функция3"/>
+              <text value="Функция3"/>
+            </properties>
+          </component>
+          <component id="90f50" class="javax.swing.JButton" binding="func4">
+            <constraints/>
+            <properties>
+              <actionCommand value="func4"/>
+              <text value="Фунция4"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="af0a1" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="West"/>
+        <properties>
+          <preferredSize width="80" height="40"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="89d4e" class="javax.swing.JButton" binding="event1">
+            <constraints/>
+            <properties>
+              <actionCommand value="event1"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="-1" height="-1"/>
+              <preferredSize width="30" height="30"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="178f7" class="javax.swing.JButton" binding="event2">
+            <constraints/>
+            <properties>
+              <actionCommand value="event2"/>
+              <icon value="icons/001-circle-1.png"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="-1" height="-1"/>
+              <preferredSize width="30" height="30"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="57722" class="javax.swing.JButton" binding="event3">
+            <constraints/>
+            <properties>
+              <actionCommand value="event3"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="-1" height="-1"/>
+              <preferredSize width="30" height="30"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="bc969" class="javax.swing.JButton" binding="event4">
+            <constraints/>
+            <properties>
+              <actionCommand value="event4"/>
+              <margin top="0" left="0" bottom="0" right="0"/>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="-1" height="-1"/>
+              <preferredSize width="30" height="30"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="dbebf" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
