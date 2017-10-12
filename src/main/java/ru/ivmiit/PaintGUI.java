@@ -1,13 +1,9 @@
 package ru.ivmiit;
 
-import models.CentralPanelMouseListener;
+import models.CentralPanelListener;
+import models.FiguresEnum;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.geom.Line2D;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class PaintGUI extends JFrame{
@@ -15,16 +11,17 @@ public class PaintGUI extends JFrame{
     private JPanel topPanel;
     private JPanel leftPanel;
     private JPanel centralPanel;
+    private CentralPanelListener centralPanelListener = new CentralPanelListener(this);
 
     public static void main(String[] args) {
         new PaintGUI();
     }
 
     public PaintGUI(){
+        createBaseInterface();
         createInterface();
         this.add(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, 300);
         this.setVisible(true);
     }
 
@@ -35,7 +32,6 @@ public class PaintGUI extends JFrame{
         button.setText(text);
         return button;
     }
-
     private JButton createActionButton(String name, String text){
         JButton button = new JButton();
         button.setActionCommand(name + "was pressed!");
@@ -51,23 +47,15 @@ public class PaintGUI extends JFrame{
         return button;
     }
 
-
-    private void createInterface(){
+    private void createBaseInterface(){
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout(5, 5));
         mainPanel.setEnabled(false);
-
+        mainPanel.setPreferredSize(new Dimension(600,400));
         topPanel = new JPanel();
         topPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
         topPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         mainPanel.add(topPanel, BorderLayout.NORTH);
-
-        JButton funcButton1 = createFunctionalButton("func1","кнопка 1");
-        topPanel.add(funcButton1);
-        JButton funcButton2 = createFunctionalButton("func2","кнопка 3");
-        topPanel.add(funcButton2);
-        JButton funcButton3 = createFunctionalButton("func3","кнопка 3");
-        topPanel.add(funcButton3);
 
         leftPanel = new JPanel();
         leftPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
@@ -75,36 +63,49 @@ public class PaintGUI extends JFrame{
         leftPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
         mainPanel.add(leftPanel, BorderLayout.WEST);
 
-        JButton actionButton1 = null;
-        actionButton1 = createActionButton("actionButton1", "", new ImageIcon(getClass().getResource("/icons/001-circle-1.png")));
-
-        leftPanel.add(actionButton1);
-        JButton actionButton2 = createActionButton("actionButton2","");
-        leftPanel.add(actionButton2);
-        JButton actionButton3 = createActionButton("actionButton3","");
-        leftPanel.add(actionButton3);
-
         centralPanel = new JPanel(){
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                paintComponentsOnCentralPanel(g);
+                centralPanelListener.paintComponents(g);
             }
         };
 
-        centralPanel.addMouseListener(new CentralPanelMouseListener());
-        centralPanel.setLayout(new GridBagLayout());
+        centralPanel.setLayout(new BorderLayout());
         centralPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
+        centralPanel.addMouseListener(centralPanelListener);
+        centralPanel.addMouseMotionListener(centralPanelListener);
         mainPanel.add(centralPanel, BorderLayout.CENTER);
+    }
+    private void createInterface(){
 
+        JButton funcButton1 = createFunctionalButton("ClearCentralPanel","Очистить");
+        funcButton1.addActionListener(e->{centralPanel.removeAll();centralPanelListener.removeAll();});
+        topPanel.add(funcButton1);
+        JButton funcButton2 = createFunctionalButton("func2","Типа что-то делает");
+        topPanel.add(funcButton2);
+        JButton funcButton3 = createFunctionalButton("func3","Она тоже");
+        topPanel.add(funcButton3);
+
+        JButton lineButton = createActionButton("actionButton1", "", new ImageIcon(getClass().getResource("/icons/line.png")));
+        lineButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.line));
+        leftPanel.add(lineButton);
+
+        JButton squareButton = createActionButton("actionButton1", "", new ImageIcon(getClass().getResource("/icons/square.png")));
+        squareButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.square));
+        leftPanel.add(squareButton);
+
+
+        JButton colorButton = createActionButton("setColor", "");
+        colorButton.addActionListener(e -> centralPanelListener.setColor(Color.RED));
+        leftPanel.add(colorButton);
+
+        /*
+        JButton actionButton2 = createActionButton("actionButton2","");
+        leftPanel.add(actionButton2);
+        JButton actionButton3 = createActionButton("actionButton3","");
+        leftPanel.add(actionButton3);*/
     }
 
-    private void paintComponentsOnCentralPanel(Graphics g){
-
-    }
-
-    private void setCurrentShape(){
-
-    }
 
 }

@@ -101,9 +101,15 @@
           </component>
         </children>
       </grid>
-      <grid id="dbebf" layout-manager="GridBagLayout">
+      <grid id="dbebf" layout-manager="CardLayout" hgap="5" vgap="5">
         <constraints border-constraint="Center"/>
-        <properties/>
+        <properties>
+          <autoscrolls value="true"/>
+          <enabled value="true"/>
+          <maximumSize width="200" height="200"/>
+          <minimumSize width="200" height="200"/>
+          <preferredSize width="200" height="200"/>
+        </properties>
         <border type="none"/>
         <children/>
       </grid>

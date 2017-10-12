@@ -1,12 +1,12 @@
 package models;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class CentralPanelMouseListener implements MouseListener {
     @Override
-    public void mouseClicked(MouseEvent e) {
-
+    public void mouseClicked(MouseEvent e){
     }
 
     @Override
