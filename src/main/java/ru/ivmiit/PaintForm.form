@@ -69,7 +69,7 @@
             <constraints/>
             <properties>
               <actionCommand value="event2"/>
-              <icon value="icons/001-circle-1.png"/>
+              <icon value="icons/circle.png"/>
               <margin top="0" left="0" bottom="0" right="0"/>
               <maximumSize width="-1" height="-1"/>
               <minimumSize width="-1" height="-1"/>

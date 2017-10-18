@@ -105,7 +105,7 @@ public class CentralPanelListener implements MouseListener, MouseMotionListener 
 
 
     public void setBackgroundColor(Color color) {
-
+        this.backgroundColor = color;
     }
 
 
@@ -114,12 +114,12 @@ public class CentralPanelListener implements MouseListener, MouseMotionListener 
     }
 
     public void paintComponents(Graphics g) {
-        if(currentFigure != null){
-            currentFigure.paintComponents(g);
-            setDefaultGrapgics(g);
-        }
         for(Figure figure : figuresArray){
             figure.paintComponents(g);
+            setDefaultGrapgics(g);
+        }
+        if(currentFigure != null){
+            currentFigure.paintComponents(g);
             setDefaultGrapgics(g);
         }
     }
@@ -128,7 +128,7 @@ public class CentralPanelListener implements MouseListener, MouseMotionListener 
         Graphics2D g2 = (Graphics2D) g;
         g2.setBackground(Color.WHITE);
         g2.setPaint(Color.WHITE);
-        g2.setColor(Color.black);
+        g2.setColor(Color.BLACK);
         g2.setStroke(new BasicStroke(1));
     }
     public void removeAll(){

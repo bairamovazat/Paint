@@ -1,7 +1,6 @@
 package models;
 
-import models.Figures.Line;
-import models.Figures.Square;
+import models.Figures.*;
 import models.Interfaces.Figure;
 
 public class FactoryOfFigures {
@@ -10,6 +9,12 @@ public class FactoryOfFigures {
             return new Line();
         }else if (figure == FiguresEnum.square){
             return new Square();
+        }else if (figure == FiguresEnum.circle){
+            return new Circle();
+        }else if (figure == FiguresEnum.heart){
+            return new Heart();
+        }else if (figure == FiguresEnum.rhombus){
+            return new Rhombus();
         }
         else return null;
     }

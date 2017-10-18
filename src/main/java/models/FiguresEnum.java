@@ -1,6 +1,6 @@
 package models;
 
 public enum FiguresEnum {
-    rectangle,line,square
+    rectangle,line,square,circle,heart,rhombus
     //прямоугольник
 }

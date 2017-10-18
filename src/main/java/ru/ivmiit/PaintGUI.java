@@ -22,6 +22,7 @@ public class PaintGUI extends JFrame{
         createInterface();
         this.add(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
         this.setVisible(true);
     }
 
@@ -77,6 +78,7 @@ public class PaintGUI extends JFrame{
         centralPanel.addMouseMotionListener(centralPanelListener);
         mainPanel.add(centralPanel, BorderLayout.CENTER);
     }
+
     private void createInterface(){
 
         JButton funcButton1 = createFunctionalButton("ClearCentralPanel","Очистить");
@@ -87,25 +89,48 @@ public class PaintGUI extends JFrame{
         JButton funcButton3 = createFunctionalButton("func3","Она тоже");
         topPanel.add(funcButton3);
 
-        JButton lineButton = createActionButton("actionButton1", "", new ImageIcon(getClass().getResource("/icons/line.png")));
+        JButton lineButton = createActionButton("lineButton", "", new ImageIcon(getClass().getResource("/icons/line.png")));
         lineButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.line));
         leftPanel.add(lineButton);
 
-        JButton squareButton = createActionButton("actionButton1", "", new ImageIcon(getClass().getResource("/icons/square.png")));
+        JButton squareButton = createActionButton("squareButton", "", new ImageIcon(getClass().getResource("/icons/square.png")));
         squareButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.square));
         leftPanel.add(squareButton);
 
+        JButton circleButton = createActionButton("circleButton", "", new ImageIcon(getClass().getResource("/icons/circle.png")));
+        circleButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.circle));
+        leftPanel.add(circleButton);
 
-        JButton colorButton = createActionButton("setColor", "");
-        colorButton.addActionListener(e -> centralPanelListener.setColor(Color.RED));
-        leftPanel.add(colorButton);
+        JButton heartButton = createActionButton("heartButton", "", new ImageIcon(getClass().getResource("/icons/heart.png")));
+        heartButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.heart));
+        leftPanel.add(heartButton);
 
-        /*
-        JButton actionButton2 = createActionButton("actionButton2","");
-        leftPanel.add(actionButton2);
-        JButton actionButton3 = createActionButton("actionButton3","");
-        leftPanel.add(actionButton3);*/
+        JButton rhombusButton = createActionButton("rhombusButton", "", new ImageIcon(getClass().getResource("/icons/rhomb.png")));
+        rhombusButton.addActionListener(e -> centralPanelListener.setFigureType(FiguresEnum.rhombus));
+        leftPanel.add(rhombusButton);
+
+        JButton whiteColorButton = createActionButton("rhombusButton", "");
+        whiteColorButton.addActionListener(e -> centralPanelListener.setColor(Color.WHITE));
+        whiteColorButton.setBackground(Color.WHITE);
+        leftPanel.add(whiteColorButton);
+
+
+        JButton redColorButton = createActionButton("setRedColor", "");
+        redColorButton.setBackground(Color.RED);
+        redColorButton.addActionListener(e -> centralPanelListener.setColor(Color.RED));
+        leftPanel.add(redColorButton);
+
+        JButton blackColorButton = createActionButton("setBlackColor", "");
+        blackColorButton.setBackground(Color.BLACK);
+        blackColorButton.addActionListener(e -> centralPanelListener.setColor(Color.BLACK));
+        leftPanel.add(blackColorButton);
+
+        JButton backgroundButton = createActionButton("setBackgroundColor", "", new ImageIcon(getClass().getResource("/icons/fill.png")));
+        backgroundButton.addActionListener(e -> centralPanelListener.setBackgroundColor(Color.RED));
+        leftPanel.add(backgroundButton);
+
+        JButton disableBackgroundButton = createActionButton("disableBackgroundColor", "", new ImageIcon(getClass().getResource("/icons/disabled-fill.png")));
+        disableBackgroundButton.addActionListener(e -> centralPanelListener.setBackgroundColor(null));
+        leftPanel.add(disableBackgroundButton);
     }
-
-
 }

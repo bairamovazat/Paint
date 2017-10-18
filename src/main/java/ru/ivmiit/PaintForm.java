@@ -78,7 +78,7 @@ public class PaintForm {
         panel3.add(event1);
         event2 = new JButton();
         event2.setActionCommand("event2");
-        event2.setIcon(new ImageIcon(getClass().getResource("/icons/001-circle-1.png")));
+        event2.setIcon(new ImageIcon(getClass().getResource("/icons/circle.png")));
         event2.setMargin(new Insets(0, 0, 0, 0));
         event2.setMaximumSize(new Dimension(-1, -1));
         event2.setMinimumSize(new Dimension(-1, -1));

@@ -6,7 +6,7 @@ import ru.ivmiit.utils;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-public class Square implements Figure {
+public class Heart implements Figure {
     private int x1;
     private int y1;
     private int x2;
@@ -14,6 +14,8 @@ public class Square implements Figure {
     private Color color;
     private Stroke stroke;
     private Color backgroundColor;
+    Rectangle2D rect = new Rectangle2D.Double(0, 0, 0, 0);
+
 
     @Override
     public void setColor(Color color) {
@@ -62,11 +64,30 @@ public class Square implements Figure {
 
         if(stroke != null)g2.setStroke(stroke);
 
-        if(backgroundColor != null){
-            g2.setBackground(backgroundColor);
-            g2.fillRect(Math.min(this.x1,this.x2),Math.min(this.y1,this.y2),Math.abs(this.x1 - this.x2),Math.abs(this.y2 - this.y1));
-        }
-        g2.drawRect(Math.min(this.x1,this.x2),Math.min(this.y1,this.y2),Math.abs(this.x1 - this.x2),Math.abs(this.y2 - this.y1));
+        if(backgroundColor != null)g2.setBackground(backgroundColor);
+
+        paintHeart(g);
 
     }
+
+    private void paintHeart(Graphics g){
+        int lx1 = Math.min(x1,x2);
+        int ly1 = Math.min(y1,y2);
+        int width = Math.abs(x1-x2);
+        int height = Math.abs(y1-y2);
+        //i4 - поворот i5 - радиус заполнения;
+        if(backgroundColor != null){
+            g.fillArc(lx1,ly1,width/2,height,0,180);
+            g.fillArc(Math.abs(width) / 2 + lx1,ly1,width/2,height,0,180);
+            int[] x = {lx1, lx1 + width/2, lx1 + width };
+            int[] y = {ly1 + height/2,ly1 + height,ly1 + height/2 };
+            g.fillPolygon(x,y,x.length);
+            return;
+        }
+        g.drawArc(lx1,ly1,width/2,height,0,180);
+        g.drawArc(Math.abs(width) / 2 + lx1,ly1,width/2,height,0,180);
+        g.drawLine(lx1, ly1 + height/2,lx1 + width/2, ly1 + height);
+        g.drawLine(lx1 + width, ly1 + height/2,lx1 + width/2, ly1 + height);
+    }
 }
+
